@@ -7,3 +7,4 @@ I'm planning on implementing more data structures, but as everything I start I'l
 This it currently has:
 * Linked lists
 * Queues
+* Stacks

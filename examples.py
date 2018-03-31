@@ -1,4 +1,4 @@
-from linkedList import List
+from structures.linkedList import List
 
 
 mylist = List()

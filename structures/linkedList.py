@@ -14,10 +14,10 @@ class List():
         return iter(values)
 
 
-    def add(self, value, index=-1):
+    def add(self, value, index=None):
         "Adds a node to the list"
         node = Node(value=value)
-        if index == -1:
+        if index is None:
             if self._head:
                 p = self._head
                 while p.next_node:
@@ -48,11 +48,13 @@ class List():
         self.size -= 1
 
     def _get_node_at(self, index):
-        if index < self.size: 
+        if index < self.size and index >= 0: 
             node = self._head
             for i in range(index):
                 node = node.next_node 
             return node
+        else:
+           raise IndexError("Index out of range")
         
     def print(self):
        self._head.print()

@@ -1,17 +1,16 @@
 
-
-class Queue:
+class Stack:
     def __init__(self):
         self._list = []
-
-    def enqueue(self, value):
-        self._list.append(value)
     
-    def dequeue(self):
-        value = self._list[0]
+    def push(self, value):
+        self._list.append(value)
+
+    def pop(self):
+        value = self._list[-1]
         self._list.remove(value)
         return value
-    
+
     def _get_size(self):
         return len(self._list)
 

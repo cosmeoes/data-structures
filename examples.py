@@ -1,5 +1,6 @@
 from structures.linkedList import List
 from structures.queue import Queue
+from structures.stack import Stack
 
 mylist = List()
 
@@ -19,3 +20,11 @@ queue.enqueue(3)
 queue.enqueue(4)
 for i in range(queue.size):
     print(queue.dequeue())
+
+stack = Stack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.push(4)
+for i in range(stack.size):
+    print(stack.pop())

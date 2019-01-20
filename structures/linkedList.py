@@ -34,28 +34,32 @@ class List():
                 node.next_node = prev.next_node
                 prev.next_node = node
         self.size += 1
- 
+
     def get(self, index):
         return self._get_node_at(index).value
 
     def remove(self, index):
-        node = self._get_node_at(index-1)
-        node_to_remove = node.next_node
-        if node_to_remove.next_node:
-            node.next_node = node.next_node.next_node
+        if index != 0:
+            node = self._get_node_at(index-1)
+            node_to_remove = node.next_node
+            if node_to_remove.next_node:
+                node.next_node = node.next_node.next_node
+            else:
+                node.next_node = None
         else:
-            node.next_node = None
+            self._head = self._head.next_node
         self.size -= 1
 
+
     def _get_node_at(self, index):
-        if index < self.size and index >= 0: 
+        if index < self.size and index >= 0:
             node = self._head
             for i in range(index):
-                node = node.next_node 
+                node = node.next_node
             return node
         else:
            raise IndexError("Index out of range")
-        
+
     def print(self):
        self._head.print()
 
@@ -72,7 +76,7 @@ class Node():
         return self._value
 
     value = property(get_value, set_value)
-    
+
     def set_next(self, next_node):
         self._next_node = next_node
 
@@ -82,7 +86,6 @@ class Node():
     next_node = property(get_next, set_next)
 
     def print(self):
-        print(self.value) 
+        print(self.value)
         if self.next_node:
             self.next_node.print()
-
